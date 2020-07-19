@@ -7,7 +7,7 @@ fmBridgit is the combination of a FileMaker module and a JavaScript library file
 4. wait for the result of this script call
 
 fmBridgit aims to be a simple, comprehensive and and portable framework.
-It is a work in progress though, as it started out as forum discussions on https://clarify.net, Slack and Riot, and Jitsi video chats related to the dotfmp 2020 event.
-It would never have been possible without prior work done in the community ( jquery, moment, and the JavaScript Promise examples by Andries which he did for One More Thing a few years ago ).
+It is a work in progress though, as it started out as forum discussions on https://clarify.net, Slack and Riot, and Jitsi video chats related to the https://dotfmp.berlin 2020 event.
+It would never have been possible without prior work done in the community ( jquery, moment, and the JavaScript Promise examples by Andries which he did for https://www.1-more-thing.com a few years ago ).
 
 
