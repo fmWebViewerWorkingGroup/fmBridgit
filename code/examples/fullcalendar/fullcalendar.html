@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset='utf-8' />
+<!--The below links should be adapted to the location where you are putting the support files-->
+<link href='fullcalendar.min.css' rel='stylesheet' />
+<script src='moment.min.js'></script>
+<script src='jquery.min.js'></script>
+<script src='fullcalendar.min.js'></script>
+<script src="es6-promise.auto.min.js"></script>	
+<script src="filemakerwrapper.js"></script>	
+    
+<style>
+    .fc-unthemed th,
+    .fc-unthemed td,
+    .fc-unthemed thead,
+    .fc-unthemed tbody,
+    .fc-unthemed .fc-divider,
+    .fc-unthemed .fc-row,
+    .fc-unthemed .fc-popover,
+    .fc-unthemed .fc-list-view,
+    .fc-unthemed .fc-list-heading td {
+        border-color: rgba(204,204,204,1) !important;
+        color: rgba(0,0,0,1) !important;}   
+    .fc-unthemed .fc-header-toolbar{
+        color: rgba(0,0,0,1) !important;
+    }
+</style>
+
+<script> 
+
+	fmBridgit.PerformScript( "[web] InitCalendar" , "" );
+	var dayclicked = null;
+	var clickstart = null;
+
+	function loadCalendar( param ) {
+		var data = JSON.parse ( param ) ;		
+		$('#calendar').fullCalendar({
+			defaultDate: data.defaultDate,
+			firstDay: data.firstDay,
+			editable: data.editable, // enable draggable events
+			eventDurationEditable: true,
+			displayEventTime: false,
+			aspectRatio: data.aspectRatio,
+			scrollTime: '00:00', // undo default 6am scrollTime
+			header: {
+				left: 'prev, next',
+				center:'title',
+				right: 'month,agendaWeek,agendaDay,listWeek',
+			},
+			defaultView: data.defaultView ,
+			views: {
+				agendaWeek: {
+					minTime: '06:00',
+					maxTime: '24:00',				
+				}
+			},
+			events: function ( start, end, timezone, callback ) {
+				var param = {} ; param.start = start ; param.end = end ; param = JSON.stringify( param ) ;
+            	fmBridgit.PerformScript("[web] fetch events", param )
+            	.then ( function ( data ) { callback ( JSON.parse ( data ) ) } )
+				.catch( function ( error ) { alert("ERROR:" + error ) } ) 
+				},
+			eventColor: 'rgba(85,119,221,0.85)',
+			eventTextColor: 'rgba(255,255,255,1)',
+			
+			
+			eventResize: function(event, delta, revertFunc) {
+                var param = {}; param.id = event.id; param.start = event.start; param.end = event.end; param.name = "resize" ;
+                fmBridgit.PerformScript( data.editScript, JSON.stringify(param) )
+            		.then ( function ( data ) { } )
+					.catch( function ( error ) { revertFunc () ; alert("ERROR:" + error ) }  )
+			},
+			eventDrop: function(event, delta, revertFunc) {
+                var param = {}; param.id = event.id; param.start = event.start; param.end = event.end; param.name = "drop" ;
+                //tell FileMaker to move the event
+                fmBridgit.PerformScript( data.editScript, JSON.stringify(param) )
+            		.then ( function ( data ) { } )
+            		//FileMaker has trouble moving the event for some reason, revert the event drop!
+					.catch( function ( error ) { revertFunc () ; alert("ERROR:" + error ) }  )
+			},
+    		eventClick: function(calEvent, jsEvent, view) {
+    		    $('.tooltipevent').remove();
+                var param = {}; param.id = calEvent.id; param.xclick = jsEvent.pageX; param.yclick = jsEvent.pageY; param.name = "click" ;
+                fmBridgit.PerformScript( data.clickScript, JSON.stringify(param) )
+            		.then ( function ( data ) { } )
+					.catch( function ( error ) { alert("ERROR:" + error ) } ) 
+ 	   		},
+            //This code should create a new event on a double click, not implemented in FileMaker example, just a dialog
+			dayClick: function(date, jsEvent, view) {
+				var dayclickednew = new Date(date).getTime();
+				var d = new Date();
+				var clicktime = d.getTime();
+				if ( dayclicked == dayclickednew && (clicktime - clickstart) < 500 ) {
+					clickstart = null;
+					dayclicked = null;
+                    var param = {}; param.date = date; param.xclick = jsEvent.pageX; param.yclick = jsEvent.pageY;
+                    if(true){
+                		FileMaker.PerformScript ( data.doubleClickScript , JSON.stringify(param) );
+                    }
+				} else {
+					dayclicked = dayclickednew;
+					var d = new Date();
+					clickstart = d.getTime();					
+				}
+            			return false;
+			},
+			eventMouseover: function(calEvent, jsEvent) {
+			    var notes = '';
+			    if(typeof calEvent.notes != 'undefined'){
+			        notes = calEvent.notes
+			    }
+				var tooltip = '<div id = "tooltip" class="tooltipevent" style="width:150px;min-height:10px;background:rgba(221,221,51,1);position:absolute;z-index:10001;padding:3px;border:1px solid rgba(240,255,0,1);border-radius:3px;font-size:10px;color:rgba(37,36,36,1)"><div style="font-weight: bold">' + calEvent.title +'</div>'+ notes + '</div>';
+				var $tooltip = $(tooltip);
+				if(true){$tooltip.appendTo('body');}
+				$(this).mouseover(function(e) {
+					$(this).css('z-index', 10000);
+					$tooltip.fadeIn('500');
+                    $tooltip.fadeTo('10', 1.9);
+				}).mousemove(function(e) {
+                    if(e.pageX + 20 + $tooltip.width()+ 20 > $(window).width()){
+                        $tooltip.css('left', e.pageX - $tooltip.width() + 20);
+                    }else{
+                        $tooltip.css('left', e.pageX + 20);
+                    }
+                    if(e.pageY + 10 + $tooltip.height() + 10 > $(window).height()){
+                        $tooltip.css('top', e.pageY - $tooltip.height() + 10);
+                    }else{
+                        $tooltip.css('top', e.pageY + 10);
+                    }
+
+				});
+			},
+            eventMouseout: function(calEvent, jsEvent) {
+                $(this).css('z-index', 8);
+                $('.tooltipevent').remove();
+            }
+		});
+	
+	};
+
+			
+	function addEvent(param){
+	    $('#calendar').fullCalendar('renderEvent', param);
+	}
+	
+	function deleteEvent(param){
+	    $('#calendar').fullCalendar('removeEvents', param.id);
+	}
+	
+    function updateEvent( stringParam ){
+    // this is a request coming from FileMaker
+    	if ( stringParam == "{}" ) {
+			//example of returning an error result    	
+    		var result = {} ; result.error = 1 ; result.error_message = "empty parameter" ;
+			fmBridgit.returnResult( result ) 
+    	}
+    	else {
+    	    var param = JSON.parse ( stringParam ) ;
+			var event = $('#calendar').fullCalendar('clientEvents', param.id)[0];
+			event.title = param.title;
+			event.start = param.start;
+			event.end = param.end;
+			event.color = param.color;
+			event.textColor = param.textColor;
+			event.notes = param.notes;
+
+			$('#calendar').fullCalendar('updateEvent', event);
+			var result = {} ; result.error = 0 ;
+			// try to return the result, will give JavaScript alert if not succeeding 
+			fmBridgit.returnResult( result ) 
+				.then ( function ( data ) { result } )
+				.catch( function ( error ) { alert("ERROR:" + error ) } ) 
+		}
+    }
+</script>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 12px;
+	}
+	#calendar {
+		max-width: 98%;
+		max-height: 98%;
+		margin: 3px auto;
+	}
+</style>
+</head>
+	<body onload="loaded()">
+	<div id='calendar'></div>
+    <iframe name='fmpurl' style='width:0;height:0;border:0; border:none; z-index: -1;'></iframe>
+</body>
+</html>

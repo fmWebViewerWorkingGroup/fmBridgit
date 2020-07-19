@@ -1,0 +1,85 @@
+﻿Timestamp	Filename	Error	Message
+2020-07-19 16:30:00.006 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:30:00.006 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:30:00.006 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:47.298 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:47.299 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:47.299 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:47.494 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:47.496 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:47.496 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:47.659 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:47.661 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:47.661 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:47.822 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:47.824 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:47.824 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:47.976 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:47.978 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:47.978 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:48.127 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:48.129 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:48.129 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:48.289 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:48.290 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:48.290 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:48.457 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:48.458 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:48.459 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:48.619 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:48.621 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:48.621 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:48.771 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:48.773 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:48.773 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:48.920 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:48.923 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:48.923 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:49.079 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:49.080 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:49.080 +0200	example.fmp12	0	Import completed
+2020-07-19 16:42:49.247 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 16:42:49.248 +0200	New Script	0	script steps imported : 1
+2020-07-19 16:42:49.248 +0200	example.fmp12	0	Import completed
+2020-07-19 17:17:04.315 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:17:04.317 +0200	[OnLayoutLoad] local	0	script steps imported : 10
+2020-07-19 17:17:04.317 +0200	example.fmp12	0	Import completed
+2020-07-19 17:19:37.971 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:19:37.973 +0200	[button] save event	0	script steps imported : 10
+2020-07-19 17:19:37.973 +0200	example.fmp12	0	Import completed
+2020-07-19 17:29:12.508 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:29:12.509 +0200	[web] InitCalendar	0	script steps imported : 10
+2020-07-19 17:29:12.510 +0200	example.fmp12	0	Import completed
+2020-07-19 17:31:26.360 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:31:26.361 +0200	[web] InitCalendar	0	script steps imported : 3
+2020-07-19 17:31:26.361 +0200	example.fmp12	0	Import completed
+2020-07-19 17:34:37.083 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:34:37.085 +0200	[web] fetch events	0	script steps imported : 10
+2020-07-19 17:34:37.085 +0200	example.fmp12	0	Import completed
+2020-07-19 17:41:43.923 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:41:43.925 +0200	[web] eventClick	0	script steps imported : 10
+2020-07-19 17:41:43.925 +0200	example.fmp12	0	Import completed
+2020-07-19 17:43:25.915 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:43:25.917 +0200	[web] eventEdit	0	script steps imported : 10
+2020-07-19 17:43:25.917 +0200	example.fmp12	0	Import completed
+2020-07-19 17:49:55.520 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:49:55.522 +0200	fmBridgit.performWebScript	0	script steps imported : 10
+2020-07-19 17:49:55.522 +0200	example.fmp12	0	Import completed
+2020-07-19 17:52:23.365 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:52:23.366 +0200	[button] save event	0	script steps imported : 1
+2020-07-19 17:52:23.366 +0200	example.fmp12	0	Import completed
+2020-07-19 17:57:04.510 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 17:57:04.512 +0200	fmBridgit.properties	0	script steps imported : 10
+2020-07-19 17:57:04.512 +0200	example.fmp12	0	Import completed
+2020-07-19 18:03:31.148 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 18:03:31.150 +0200	_fmBridgit.returnResult	0	script steps imported : 10
+2020-07-19 18:03:31.150 +0200	example.fmp12	0	Import completed
+2020-07-19 18:05:19.991 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 18:05:19.992 +0200	_fmBridgit.webhook	0	script steps imported : 10
+2020-07-19 18:05:19.992 +0200	example.fmp12	0	Import completed
+2020-07-19 18:09:25.794 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 18:09:25.796 +0200	_fmBridgit.performWebScript	0	script steps imported : 10
+2020-07-19 18:09:25.797 +0200	example.fmp12	0	Import completed
+2020-07-19 18:16:12.437 +0200	example.fmp12	0	Import of script steps from clipboard started
+2020-07-19 18:16:12.440 +0200	_fmBridgit.processScriptParameters	0	script steps imported : 10
+2020-07-19 18:16:12.440 +0200	example.fmp12	0	Import completed
